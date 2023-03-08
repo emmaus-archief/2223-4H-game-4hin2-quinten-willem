@@ -18,3 +18,13 @@ https://emmauscollege.github.io/informatica/game/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
+Pong
+stap 1: balk maken
+grenzen maken zodat balken en bal niet te ver gaan
+zorgen dat bal stuitert tegen randen en balken
+
+stap 2: zorg dat er een tweede bestuurbare balk is
+zorg dat een speler punten krijgt als de bal achter de balk is
+
+stap 3: voeg extra blokken toe voor punten
+sommige blokken duren langer om kapot te maken
