@@ -26,5 +26,9 @@ zorgen dat bal stuitert tegen randen en balken
 stap 2: zorg dat er een tweede bestuurbare balk is
 zorg dat een speler punten krijgt als de bal achter de balk is
 
-stap 3: voeg extra blokken toe voor punten
-sommige blokken duren langer om kapot te maken
+stap 3: scorebord/ punten toevoegen met animatie bij goal
+
+stap 4: achtergrond maken/ coole bal
+
+stap 5: code handiger maken/ kleine dingetjes toevoegen
+
