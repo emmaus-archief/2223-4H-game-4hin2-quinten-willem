@@ -18,9 +18,10 @@
 const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
+const A_TOETS_c = 65
 
  // x-positie van speler
-var spelerY = 600; // y-positie van speler
+var spelerY = 490; // y-positie van speler
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -31,6 +32,11 @@ var spelerY = 600; // y-positie van speler
  */
 var beweegAlles = function() {
   // speler
+  
+   if (keyIsDown('65')) {
+     console.log("A is ingedrukt");
+      spelerY = spelerY + 1;
+   }
 
   // vijand
 
