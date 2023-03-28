@@ -33,8 +33,8 @@ var spelerY = 490; // y-positie van speler
 var beweegAlles = function() {
   // speler
   
-   if (keyIsDown('65')) {
-     console.log("A is ingedrukt");
+   if (keyIsDown('83')) {
+     console.log("S is ingedrukt");
       spelerY = spelerY + 1;
    }
 
