@@ -41,7 +41,15 @@ var beweegAlles = function() {
      console.log("Arrow down is ingedrukt");
       spelerY2 = spelerY2 + 1;
    }
-
+  
+if (keyIsDown('87')) {
+     console.log("w is ingedrukt");
+      spelerY1 = spelerY1 - 1;
+   }
+  if (keyIsDown('38')) {
+     console.log("Arrow up is ingedrukt");
+      spelerY2 = spelerY2 - 1;
+   }
   // vijand
 
   // kogel
