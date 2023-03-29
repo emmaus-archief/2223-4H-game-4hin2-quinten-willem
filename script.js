@@ -21,7 +21,7 @@ var spelStatus = SPELEN;
 const A_TOETS_c = 65
 
  // x-positie van speler
-var spelerY = 490; // y-positie van speler
+var spelerY1, spelerY2= 490; // y-positie van speler
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -35,7 +35,11 @@ var beweegAlles = function() {
   
    if (keyIsDown('83')) {
      console.log("S is ingedrukt");
-      spelerY = spelerY + 1;
+      spelerY1 = spelerY1 + 1;
+   }
+  if (keyIsDown('40')) {
+     console.log("Arrow down is ingedrukt");
+      spelerY2 = spelerY2 + 1;
    }
 
   // vijand
@@ -69,9 +73,9 @@ var tekenAlles = function() {
 
   // speler
   fill("red");
-  rect(40 , spelerY - 250, 25, 200);
+  rect(40 , spelerY1 - 250, 25, 200);
   fill("red");
-  rect(1200, spelerY - 250, 25, 200);
+  rect(1200, spelerY2 - 250, 25, 200);
   
 
   // punten en health
