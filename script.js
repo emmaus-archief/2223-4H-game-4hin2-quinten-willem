@@ -78,6 +78,9 @@ var tekenAlles = function() {
   // achtergrond
 background('lightgreen');
   // vijand
+  //veld
+  fill ("white")  
+  rect (0,0,1300,20);
 
   // kogel
 
