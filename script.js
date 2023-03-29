@@ -21,8 +21,8 @@ var spelStatus = SPELEN;
 const A_TOETS_c = 65
 
  // x-positie van speler
-var spelerY1, spelerY2= 490; // y-positie van speler
-
+var spelerY1 = 490; // y-positie van speler 1
+var spelerY2 = 490; // y-positie van speler 2
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -35,24 +35,26 @@ var beweegAlles = function() {
   
    if (keyIsDown('83')) {
      console.log("S is ingedrukt");
-      spelerY1 = spelerY1 + 1;
+      spelerY1 = spelerY1 + 1.5;
    }
   if (keyIsDown('40')) {
      console.log("Arrow down is ingedrukt");
-      spelerY2 = spelerY2 + 1;
+      spelerY2 = spelerY2 + 1.5;
    }
   
 if (keyIsDown('87')) {
      console.log("w is ingedrukt");
-      spelerY1 = spelerY1 - 1;
+      spelerY1 = spelerY1 - 1.5;
    }
   if (keyIsDown('38')) {
+    
      console.log("Arrow up is ingedrukt");
-      spelerY2 = spelerY2 - 1;
+      spelerY2 = spelerY2 - 1.5;
    }
   // vijand
 
   // kogel
+
 };
 
 /**
@@ -74,16 +76,16 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-
+background('lightgreen');
   // vijand
 
   // kogel
 
   // speler
   fill("red");
-  rect(40 , spelerY1 - 250, 25, 200);
+  rect(40 , spelerY1 - 250, 25, 100);
   fill("red");
-  rect(1200, spelerY2 - 250, 25, 200);
+  rect(1200, spelerY2 - 250, 25, 100);
   
 
   // punten en health
@@ -112,8 +114,8 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('lightgreen');
+  // Kleur de achtergrond lichtgroen, zodat je het kunt zien
+  
 }
 
 /**
