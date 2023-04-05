@@ -19,6 +19,15 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 const A_TOETS_c = 65
+const BORDER_LEFT = 0;
+const BORDER_TOP = 50;
+const BORDER_WIDTH = 1000;
+const BORDER_HEIGHT = 500;
+
+function preload() {
+  
+  img = loadImage('imgVeld.jpg');
+}
 
  // x-positie van speler
 var spelerY1 = 490; // y-positie van speler 1
@@ -76,7 +85,10 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-background('lightgreen');
+background('imgVeld');
+  fill(255,0,0);
+  rect(BORDER_LEFT, BORDER_TOP, BORDER_WIDTH, BORDER_HEIGHT);
+  image(imgVeld, BORDER_LEFT, BORDER_TOP, BORDER_WIDTH, BORDER_HEIGHT);
   // vijand
   //veld
   fill ("white")  
