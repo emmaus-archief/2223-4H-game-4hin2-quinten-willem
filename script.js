@@ -19,14 +19,12 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 const A_TOETS_c = 65
-const BORDER_LEFT = 0;
-const BORDER_TOP = 50;
-const BORDER_WIDTH = 1000;
-const BORDER_HEIGHT = 500;
-
+var imageVeld;
+const BorderLeft= 0;
+const BorderRight = 1280;
 function preload() {
   
-  img = loadImage('imgVeld.jpg');
+  imageVeld = loadImage('imgVeld.jpg');
 }
 
  // x-positie van speler
@@ -44,21 +42,21 @@ var beweegAlles = function() {
   
    if (keyIsDown('83')) {
      console.log("S is ingedrukt");
-      spelerY1 = spelerY1 + 1.5;
+      spelerY1 = spelerY1 + 2.5;
    }
   if (keyIsDown('40')) {
      console.log("Arrow down is ingedrukt");
-      spelerY2 = spelerY2 + 1.5;
+      spelerY2 = spelerY2 + 2.5;
    }
   
 if (keyIsDown('87')) {
      console.log("w is ingedrukt");
-      spelerY1 = spelerY1 - 1.5;
+      spelerY1 = spelerY1 - 2.5;
    }
   if (keyIsDown('38')) {
     
      console.log("Arrow up is ingedrukt");
-      spelerY2 = spelerY2 - 1.5;
+      spelerY2 = spelerY2 - 2.5;
    }
   // vijand
 
@@ -85,22 +83,19 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-background('imgVeld');
-  fill(255,0,0);
-  rect(BORDER_LEFT, BORDER_TOP, BORDER_WIDTH, BORDER_HEIGHT);
-  image(imgVeld, BORDER_LEFT, BORDER_TOP, BORDER_WIDTH, BORDER_HEIGHT);
+ 
+  rect(0, 0, width, height);
+  image(imageVeld, 5, 5, width-10, height-10);
   // vijand
-  //veld
-  fill ("white")  
-  rect (0,0,1300,20);
+
 
   // kogel
 
   // speler
   fill("red");
-  rect(40 , spelerY1 - 250, 25, 100);
+  rect(BorderLeft+50 , spelerY1 - 185, 25, 100);
   fill("red");
-  rect(1200, spelerY2 - 250, 25, 100);
+  rect(BorderRight-75, spelerY2 - 185, 25, 100);
   
 
   // punten en health
