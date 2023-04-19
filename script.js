@@ -30,6 +30,8 @@ function preload() {
  // x-positie van speler
 var spelerY1 = 490; // y-positie van speler 1
 var spelerY2 = 490; // y-positie van speler 2
+var balX = 600;
+var balY = 200;
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -58,7 +60,7 @@ if (keyIsDown('87')) {
      console.log("Arrow up is ingedrukt");
       spelerY2 = spelerY2 - 2.5;
    }
-  // vijand
+  // bal
 
   // kogel
 
@@ -71,6 +73,17 @@ if (keyIsDown('87')) {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
+if (spelerY1 === balY &&
+    spelerX1 === balX )
+{
+  console.log("botsing1")
+    }
+if (spelerY2 === balY &&
+    spelerX2 === balX )
+{
+  console.log("botsing2")
+    }
+
 
   // botsing kogel tegen vijand
 
@@ -89,8 +102,10 @@ var tekenAlles = function() {
   // vijand
 
 
-  // kogel
-
+  // bal
+  fill("white");
+  ellipse(balX,balY,50,50);
+  
   // speler
   fill("red");
   rect(BorderLeft+50 , spelerY1 - 185, 25, 100);
