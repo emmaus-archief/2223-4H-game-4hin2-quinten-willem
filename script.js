@@ -32,6 +32,8 @@ var spelerY1 = 490; // y-positie van speler 1
 var spelerY2 = 490; // y-positie van speler 2
 var balX = 600;
 var balY = 200;
+var speedX = 3;
+var speedY = 3;
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -42,26 +44,44 @@ var balY = 200;
 var beweegAlles = function() {
   // speler
   
-   if (keyIsDown('83')) {
-     console.log("S is ingedrukt");
-      spelerY1 = spelerY1 + 2.5;
-   }
+  if (keyIsDown('83')) {
+    console.log("S is ingedrukt");
+    spelerY1 = spelerY1 + 2.5;
+  }
+  
   if (keyIsDown('40')) {
      console.log("Arrow down is ingedrukt");
       spelerY2 = spelerY2 + 2.5;
-   }
+  }
   
-if (keyIsDown('87')) {
-     console.log("w is ingedrukt");
-      spelerY1 = spelerY1 - 2.5;
-   }
+  if (keyIsDown('87')) {
+    console.log("w is ingedrukt");
+    spelerY1 = spelerY1 - 2.5;
+  }
   if (keyIsDown('38')) {
-    
      console.log("Arrow up is ingedrukt");
       spelerY2 = spelerY2 - 2.5;
    }
   // bal
+  balX = balX + speedX;
 
+  balY = balY + speedY;
+
+  if(balX >= 1280){
+    speedX = speedX * -1;
+  }
+
+    if(balX <= 0) {
+    speedX = speedX * -1;
+  }
+  
+  if(balY >= 720){
+    speedY = speedY * -1;
+  }
+  
+  if(balY <= 0){
+    speedY = speedY * -1;
+  }
   // kogel
 
 };
