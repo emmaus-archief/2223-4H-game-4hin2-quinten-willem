@@ -30,6 +30,8 @@ function preload() {
  // x-positie van speler
 var spelerY1 = 490; // y-positie van speler 1
 var spelerY2 = 490; // y-positie van speler 2
+var spelerX1 = 30
+var spelerX2 = 1200
 var balX = 600;
 var balY = 200;
 var speedX = 3;
@@ -82,6 +84,20 @@ var beweegAlles = function() {
   if(balY <= 0){
     speedY = speedY * -1;
   }
+if (balY - spelerY1 <40 &&
+    balY - spelerY1 >-40 &&
+    balX - spelerX1 <40 && 
+    balX - spelerX1 >-40) {
+    speedY = speedY * -1;
+  }
+  
+if (balY - spelerY2 <40 &&
+    balY - spelerY2 >-40 &&
+    balX - spelerX2 <40 && 
+    balX - spelerX2 >-40) {
+    speedY = speedY * -1;
+  }
+  
   // kogel
 
 };
@@ -103,6 +119,9 @@ if (spelerY2 === balY &&
 {
   console.log("botsing2")
     }
+
+  
+  
 
 
   // botsing kogel tegen vijand
@@ -128,9 +147,9 @@ var tekenAlles = function() {
   
   // speler
   fill("red");
-  rect(BorderLeft+50 , spelerY1 - 185, 25, 100);
+  rect(spelerX1 , spelerY1 - 185, 25, 100);
   fill("red");
-  rect(BorderRight-75, spelerY2 - 185, 25, 100);
+  rect(spelerX2, spelerY2 - 185, 25, 100);
   
 
   // punten en health

@@ -29,7 +29,7 @@ stap 2: zorg dat er een tweede bestuurbare balk is
 - zorg dat er een bal is
 - zorg dat de bal beweegt
 - zorg dat debal kaatst bij y<0 en y>720
-- zorg dat console.log bericht gegevenw ordt als bal tegen plank botst (zie video botsgin detecte)
+- zorg dat console.log bericht gegeven wordt als bal tegen plank botst (zie video botsgin detecte)
 - zorg dst bal kaatst als hij botst
 
 zorg dat een speler punten krijgt als de bal achter de balk is
