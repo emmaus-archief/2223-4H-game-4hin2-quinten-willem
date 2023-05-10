@@ -198,6 +198,10 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
+    console.log('game over');
+    textSize(20);
+    fill("white");
+    text("Game Over", 100, 100);
 
   }
 }
