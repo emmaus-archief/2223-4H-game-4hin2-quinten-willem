@@ -1,5 +1,5 @@
 /* Game opdracht
-   Informatica - Emmauscollege Rotterdam
+   Informatica - Emmauscollege Rotterdams
    Template voor een game in JavaScript met de p5 library
 
    Begin met dit template voor je game opdracht,
@@ -20,14 +20,14 @@ const GAMEOVER = 2;
 var spelStatus = SPELEN;
 const A_TOETS_c = 65
 var imageVeld;
-const BorderLeft= 0;
+const BorderLeft = 0;
 const BorderRight = 1280;
 function preload() {
-  
+
   imageVeld = loadImage('imgVeld.jpg');
 }
 
- // x-positie van speler
+// x-positie van speler
 var spelerY1 = 490; // y-positie van speler 1
 var spelerY2 = 490; // y-positie van speler 2
 var spelerX1 = 30
@@ -45,59 +45,62 @@ var speedY = 3;
  */
 var beweegAlles = function() {
   // speler
-  
+
   if (keyIsDown('83')) {
     console.log("S is ingedrukt");
     spelerY1 = spelerY1 + 2.5;
   }
-  
+
   if (keyIsDown('40')) {
-     console.log("Arrow down is ingedrukt");
-      spelerY2 = spelerY2 + 2.5;
+    console.log("Arrow down is ingedrukt");
+    spelerY2 = spelerY2 + 2.5;
   }
-  
+
   if (keyIsDown('87')) {
     console.log("w is ingedrukt");
     spelerY1 = spelerY1 - 2.5;
   }
   if (keyIsDown('38')) {
-     console.log("Arrow up is ingedrukt");
-      spelerY2 = spelerY2 - 2.5;
-   }
-  // bal
+    console.log("Arrow up is ingedrukt");
+    spelerY2 = spelerY2 - 2.5;
+  }
+  // bal bewegen
   balX = balX + speedX;
 
   balY = balY + speedY;
 
-  if(balX >= 1280){
+  // bal stuiteren tegen randen
+  if (balX >= 1280) {
     speedX = speedX * -1;
   }
 
-    if(balX <= 0) {
+  if (balX <= 0) {
     speedX = speedX * -1;
   }
-  
-  if(balY >= 720){
+
+  if (balY >= 720) {
     speedY = speedY * -1;
   }
-  
-  if(balY <= 0){
+
+  if (balY <= 0) {
     speedY = speedY * -1;
   }
-if (balY - spelerY1 <40 &&
-    balY - spelerY1 >-40 &&
-    balX - spelerX1 <40 && 
-    balX - spelerX1 >-40) {
-    speedY = speedY * -1;
+
+  // bal stuiteren tegen plank links
+  if (balY - spelerY1 < 50 &&
+    balY - spelerY1 > -50 &&
+    balX - spelerX1 < 50 &&
+    balX - spelerX1 > -50) {
+    speedX = speedX * -1;
   }
-  
-if (balY - spelerY2 <40 &&
-    balY - spelerY2 >-40 &&
-    balX - spelerX2 <40 && 
-    balX - spelerX2 >-40) {
-    speedY = speedY * -1;
+  // bal stuiteren tegen plank rechts
+  if (balY - spelerY2 < 50 &&
+    balY - spelerY2 > -50 &&
+    balX - spelerX2 < 50 &&
+    balX - spelerX2 > -50) {
+    speedX = speedX * -1;
   }
-  
+
   // kogel
 
 };
@@ -109,19 +112,17 @@ if (balY - spelerY2 <40 &&
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-if (spelerY1 === balY &&
-    spelerX1 === balX )
-{
-  console.log("botsing1")
-    }
-if (spelerY2 === balY &&
-    spelerX2 === balX )
-{
-  console.log("botsing2")
-    }
+  if (spelerY1 === balY &&
+    spelerX1 === balX) {
+    console.log("botsing1")
+  }
+  if (spelerY2 === balY &&
+    spelerX2 === balX) {
+    console.log("botsing2")
+  }
 
-  
-  
+
+
 
 
   // botsing kogel tegen vijand
@@ -135,23 +136,23 @@ if (spelerY2 === balY &&
  */
 var tekenAlles = function() {
   // achtergrond
- 
+
   rect(0, 0, width, height);
-  image(imageVeld, 5, 5, width-10, height-10);
+  image(imageVeld, 5, 5, width - 10, height - 10);
   // vijand
 
 
   // bal
   fill("white");
-  ellipse(balX,balY,50,50);
-  
+  ellipse(balX, balY, 50, 50);
+
   // speler
   fill("red");
-  rect(spelerX1 , spelerY1 - 185, 25, 100);
+  rect(spelerX1-12.5, spelerY1-50, 25, 100);
   fill("red");
-  rect(spelerX2, spelerY2 - 185, 25, 100);
+  rect(spelerX2-12.5, spelerY2-50, 25, 100);
   
-
+  
   // punten en health
 
 };
@@ -179,7 +180,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond lichtgroen, zodat je het kunt zien
-  
+
 }
 
 /**
