@@ -214,7 +214,7 @@ function draw() {
     console.log('Game Over');
     textSize(75);
     fill("black");
-    text("Game Over", 400, 50);
+    text("Game Over", 440, 360);
 
   }
 }
