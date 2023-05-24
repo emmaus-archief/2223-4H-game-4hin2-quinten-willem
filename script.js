@@ -124,10 +124,12 @@ var verwerkBotsing = function() {
 
   // update punten en health
   if (balX => 1280) {
-    punten1 = punten1 + 1
+    punten1 = punten1 + 1 
+    balX = 620
   }
   if (balX <= 0) {
-    punten1 = punten1 + 1
+    punten1 = punten1 + 1 
+      balX = 620
   }
  
   if (punten1 = 5){
@@ -138,7 +140,7 @@ var verwerkBotsing = function() {
   }
    if (balX < 1280 &&
     balX > 0) {
-    spelStatus= SPELEN
+    spelStatus = SPELEN
   }
   
 };
