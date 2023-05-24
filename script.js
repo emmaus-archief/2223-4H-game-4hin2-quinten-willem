@@ -36,6 +36,8 @@ var balX = 600;
 var balY = 200;
 var speedX = 3;
 var speedY = 3;
+var punten1 = 0;
+var punten2 = 0; 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -64,19 +66,9 @@ var beweegAlles = function() {
     console.log("Arrow up is ingedrukt");
     spelerY2 = spelerY2 - 2.5;
   }
-  // bal bewegen
-  balX = balX + speedX;
 
-  balY = balY + speedY;
 
   // bal stuiteren tegen randen
-  if (balX >= 1280) {
-    speedX = speedX * -1;
-  }
-
-  if (balX <= 0) {
-    speedX = speedX * -1;
-  }
 
   if (balY >= 720) {
     speedY = speedY * -1;
@@ -89,18 +81,21 @@ var beweegAlles = function() {
   // bal stuiteren tegen plank links
   if (balY - spelerY1 < 50 &&
     balY - spelerY1 > -50 &&
-    balX - spelerX1 < 50 &&
-    balX - spelerX1 > -50) {
+    balX - spelerX1 < 10 &&
+    balX - spelerX1 > -10) {
     speedX = speedX * -1;
   }
   // bal stuiteren tegen plank rechts
   if (balY - spelerY2 < 50 &&
     balY - spelerY2 > -50 &&
-    balX - spelerX2 < 50 &&
-    balX - spelerX2 > -50) {
+    balX - spelerX2 < 10 &&
+    balX - spelerX2 > -10) {
     speedX = speedX * -1;
   }
 
+  // bal bewegen
+  balX = balX + speedX;
+  balY = balY + speedY;
   // kogel
 
 };
@@ -128,7 +123,24 @@ var verwerkBotsing = function() {
   // botsing kogel tegen vijand
 
   // update punten en health
-
+  if (balX => 1280) {
+    punten1 = punten1 + 1
+  }
+  if (balX <= 0) {
+    punten1 = punten1 + 1
+  }
+ 
+  if (punten1 = 5){
+    spelStatus= GAMEOVER
+  }
+  if (punten2 = 5){
+    spelStatus= GAMEOVER
+  }
+   if (balX < 1280 &&
+    balX > 0) {
+    spelStatus= SPELEN
+  }
+  
 };
 
 /**
@@ -148,11 +160,11 @@ var tekenAlles = function() {
 
   // speler
   fill("red");
-  rect(spelerX1-12.5, spelerY1-50, 25, 100);
+  rect(spelerX1 - 12.5, spelerY1 - 50, 25, 100);
   fill("red");
-  rect(spelerX2-12.5, spelerY2-50, 25, 100);
-  
-  
+  rect(spelerX2 - 12.5, spelerY2 - 50, 25, 100);
+
+
   // punten en health
 
 };
