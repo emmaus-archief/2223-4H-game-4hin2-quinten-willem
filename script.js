@@ -28,16 +28,16 @@ function preload() {
 }
 
 // x-positie van speler
-var spelerY1 = 490; // y-positie van speler 1
-var spelerY2 = 490; // y-positie van speler 2
-var spelerX1 = 30
-var spelerX2 = 1200
+var spelerY1 = 360; // y-positie van speler 1
+var spelerY2 = 360; // y-positie van speler 2
+var spelerX1 = 60
+var spelerX2 = 1220
 var balX = 600;
 var balY = 200;
-var speedX = 3;
-var speedY = 3;
+var speedX = 4;
+var speedY = 4;
 var punten1 = 0;
-var punten2 = 0; 
+var punten2 = 0;
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -50,21 +50,21 @@ var beweegAlles = function() {
 
   if (keyIsDown('83')) {
     console.log("S is ingedrukt");
-    spelerY1 = spelerY1 + 2.5;
+    spelerY1 = spelerY1 + 4;
   }
 
   if (keyIsDown('40')) {
     console.log("Arrow down is ingedrukt");
-    spelerY2 = spelerY2 + 2.5;
+    spelerY2 = spelerY2 + 4;
   }
 
   if (keyIsDown('87')) {
     console.log("w is ingedrukt");
-    spelerY1 = spelerY1 - 2.5;
+    spelerY1 = spelerY1 - 4;
   }
   if (keyIsDown('38')) {
     console.log("Arrow up is ingedrukt");
-    spelerY2 = spelerY2 - 2.5;
+    spelerY2 = spelerY2 - 4;
   }
 
 
@@ -115,34 +115,30 @@ var verwerkBotsing = function() {
     spelerX2 === balX) {
     console.log("botsing2")
   }
+// ball sneller bewegem
 
 
-
-
-
-  // botsing kogel tegen vijand
 
   // update punten en health
-  if (balX => 1280) {
-    punten1 = punten1 + 1 
-    balX = 620
+
+  if (balX >= 1280) {
+    punten1 = punten1 + 1;
+    balX = 640;
+     speedX = speedX * -1; 
   }
   if (balX <= 0) {
-    punten1 = punten1 + 1 
-      balX = 620
+    punten2 = punten2 + 1;
+    balX = 640;
+    speedX = speedX * -1; 
   }
- 
-  if (punten1 = 5){
-    spelStatus= GAMEOVER
+
+  if (punten1 === 5) {
+    spelStatus = GAMEOVER;
   }
-  if (punten2 = 5){
-    spelStatus= GAMEOVER
+  if (punten2 === 5) {
+    spelStatus = GAMEOVER;
   }
-   if (balX < 1280 &&
-    balX > 0) {
-    spelStatus = SPELEN
-  }
-  
+
 };
 
 /**
@@ -168,7 +164,10 @@ var tekenAlles = function() {
 
 
   // punten en health
-
+  textSize(50);
+  fill(255, 0, 0);
+  text(punten1, 580, 50);
+  text(punten2, 660, 50);
 };
 
 /**
@@ -217,6 +216,15 @@ function draw() {
     textSize(75);
     fill("black");
     text("Game Over", 440, 360);
-
+    textSize(40);
+    text ("Press space to restart.", 440, 440)
+  if (keyIsDown(32)){
+    punten1 = 0;
+    punten2 = 0;
+    balX = 640; 
+    balY = 360;
+    spelStatus = SPELEN; 
+  }
+    
   }
 }
