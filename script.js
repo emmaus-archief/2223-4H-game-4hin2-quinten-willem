@@ -25,6 +25,7 @@ const BorderRight = 1280;
 function preload() {
 
   imageVeld = loadImage('imgVeld.jpg');
+  publieklinks = loadImage('publieklinks.jpg')
 }
 
 // x-positie van speler
@@ -38,6 +39,10 @@ var speedX = 4;
 var speedY = 4;
 var punten1 = 0;
 var punten2 = 0;
+var tijd = 0; 
+var publiekboven = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+var publiekonder = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+var publieklinks;
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -70,11 +75,11 @@ var beweegAlles = function() {
 
   // bal stuiteren tegen randen
 
-  if (balY >= 720) {
+  if (balY >= 650) {
     speedY = speedY * -1;
   }
 
-  if (balY <= 0) {
+  if (balY <= 80) {
     speedY = speedY * -1;
   }
 
@@ -115,10 +120,22 @@ var verwerkBotsing = function() {
     spelerX2 === balX) {
     console.log("botsing2")
   }
-// ball sneller bewegem
-
-
-
+// ball sneller bewegen
+  tijd = tijd + 0.012375;
+ if (tijd === 10){
+   speedX = speedX + 1; 
+   speedY = speedY + 1;
+   spelerY1 = spelerY1 + 1;
+   spelerY2 = spelerY2 + 1;
+ }
+if (tijd === 20){
+   speedX = speedX + 1; 
+   speedY = speedY + 1;
+ }
+  if (tijd === 40){
+   speedX = speedX + 1; 
+   speedY = speedY + 1;
+ }
   // update punten en health
 
   if (balX >= 1280) {
@@ -166,8 +183,21 @@ var tekenAlles = function() {
   // punten en health
   textSize(50);
   fill(255, 0, 0);
-  text(punten1, 580, 50);
-  text(punten2, 660, 50);
+  text(punten1, 580, 150);
+  text(punten2, 660, 150);
+  //publiek 
+  if (spelStatus === SPELEN){
+    for (var i = 0; i < publiekboven[0].length; i++) {
+      for (var j = 0; j < publiekboven.length; j++) {
+       if (publiekboven[j][i] === 0){
+        fill(120,120,120);
+        image (publieklinks,i * 50, j * 50,50 ,50 );
+         image (publieklinks,i * 50, j * 50 + 670,50 ,50 );
+       }
+      }
+    }
+  };
+  
 };
 
 /**
